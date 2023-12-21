@@ -183,7 +183,6 @@ GameObject:
   - component: {fileID: 574975791398587428}
   - component: {fileID: 906503128807921605}
   - component: {fileID: 2990144433403379187}
-  - component: {fileID: 3674202549488119029}
   - component: {fileID: -8118160274551506268}
   m_Layer: 3
   m_Name: Bird
@@ -366,18 +365,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neuralNetwork: {fileID: 0}
   weight: 0
---- !u!114 &3674202549488119029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5858456132095571801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c7718577f9c44e43adb377231c19dd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-8118160274551506268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,4 +397,5 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  inputLayerSize: 2
   hiddenLayerSize: 6
