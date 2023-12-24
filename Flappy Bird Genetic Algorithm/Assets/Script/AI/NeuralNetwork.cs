@@ -19,6 +19,11 @@ public class NeuralNetwork : MonoBehaviour
 
     //Current Gen
     public int gen;
+    public NeuralNetwork()
+    {
+        weightsInputToHidden = new float[inputLayerSize * hiddenLayerSize];
+        weightsHiddenToOutput = new float[hiddenLayerSize];
+    }
     public NeuralNetwork(float score, GameObject currentBird)
     {
         fitnessScore = score;
@@ -28,7 +33,8 @@ public class NeuralNetwork : MonoBehaviour
     private void Awake()
     {
         //Idea Get gen. if gen is 0 get random weights. But if gen is 1 or more. Get weights 
-
+        // Set a unique random seed
+        Random.InitState(System.DateTime.Now.Millisecond);
         //Get current gen
         PopulationController populationController = FindAnyObjectByType<PopulationController>();
         gen = populationController.gen;
@@ -43,6 +49,7 @@ public class NeuralNetwork : MonoBehaviour
     }
     public void NewInitializeWeights(float[] oldWeightsInputToHidden, float[] oldWeightsHiddenToOutput)
     {
+        
         //Base every weight on the weights of the last gen best
         for (int i = 0; i < weightsInputToHidden.Length; i++)
         {
@@ -95,7 +102,7 @@ public class NeuralNetwork : MonoBehaviour
             }
 
             //Set the hidden node value to 0 if its lower than 0 for visual purposes
-            hiddenLayerValues[i] = Mathf.Max(0, hiddenLayerValues[i]);
+            //hiddenLayerValues[i] = Mathf.Max(0, hiddenLayerValues[i]);
         }
 
         // Calculate output layer value
@@ -110,7 +117,7 @@ public class NeuralNetwork : MonoBehaviour
 
         // Apply sigmoid activation function to output
         //Keep output value between 0-1 for visual purposes
-        output = 1 / (1 + Mathf.Exp(-output));
+       // output = 1 / (1 + Mathf.Exp(-output));
 
         return output;
     }
