@@ -63,6 +63,7 @@ public class FlyBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //Debug.Log("Collised");
         wasCollided = true;
 
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;

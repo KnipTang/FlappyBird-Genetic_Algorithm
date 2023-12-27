@@ -399,3 +399,4 @@ MonoBehaviour:
   - 0
   inputLayerSize: 2
   hiddenLayerSize: 6
+  gen: 0
