@@ -41,7 +41,7 @@ public class PipeSpawner : MonoBehaviour
         }
         float randomHeight = Random.Range(_minY, _maxY);
         Vector3 spawnPos = _lastPipePosition + new Vector3(_pipeOffset, randomHeight);
-        spawnPos.y = Mathf.Clamp(spawnPos.y, _minY, _maxY);
+        spawnPos.y = randomHeight;
         GameObject pipe = Instantiate(_pipe, spawnPos, Quaternion.identity);
     }
     public void ResetLevel()

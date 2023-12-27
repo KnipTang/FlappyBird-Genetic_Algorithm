@@ -9,8 +9,8 @@ using UnityEngine.UIElements;
 public class GeneticAlgorithm : MonoBehaviour
 {
     public NeuralNetwork neuralNetwork;
-    float distanceX;
-    float distanceY;
+    public float distanceX;
+    public float distanceY;
     public float weight = 0;
 
     private void Awake()
@@ -40,10 +40,11 @@ public class GeneticAlgorithm : MonoBehaviour
         if (closestPipe != null)
         {
             Transform pipeCenterTransform = closestPipe.transform.Find("Center");
+
             if(pipeCenterTransform != null)
             {
                 distanceX = pipeCenterTransform.position.x;
-                distanceY = Mathf.Abs(gameObject.transform.position.y - pipeCenterTransform.position.y);
+                distanceY = pipeCenterTransform.position.y - gameObject.transform.position.y;
             }
         }
     }

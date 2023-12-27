@@ -35,7 +35,7 @@ public class FlyBehavior : MonoBehaviour
             Color randomColor = new Color(randomR, randomG, randomB);
 
             // Set the color to the object's material
-            renderer.material.color = randomColor;
+            //renderer.material.color = randomColor;
         }
         else
         {

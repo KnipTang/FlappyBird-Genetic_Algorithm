@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _velocity: 1.5
-  _jumpStrength: 2
+  _jumpStrength: 3
   _rotationSpeed: 10
   wasCollided: 0
 --- !u!114 &906503128807921605
@@ -364,6 +364,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neuralNetwork: {fileID: 0}
+  distanceX: 0
+  distanceY: 0
   weight: 0
 --- !u!114 &-8118160274551506268
 MonoBehaviour:

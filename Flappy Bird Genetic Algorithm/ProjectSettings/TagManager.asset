@@ -9,6 +9,7 @@ TagManager:
   - PipeCenter
   - Bird
   - PopulationController
+  - HUD
   layers:
   - Default
   - TransparentFX

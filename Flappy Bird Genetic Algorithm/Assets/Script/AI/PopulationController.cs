@@ -17,13 +17,13 @@ public class PopulationController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _birdsAlifeLabel;
     public GameObject birdPrefab; //Includes a neuralNetwork/Genetic algo
-    public int populationSize = 20;
+    public int populationSize = 10;
     public int gen = 0;
     bool isPlaying = false;
     public Transform spawnPoint;
 
     //Mutation
-    float mutationRate = 0.01f;
+    float mutationRate = 0.5f;
     float mutationAmount = 0.1f;
 
     float time = 0;
@@ -37,6 +37,8 @@ public class PopulationController : MonoBehaviour
     {
         InitPopulation();
         //Invoke("CheckAllBirdsDead", 0.1f);
+        _birdsAlifeLabel.text =
+                        "Birds Alife: " + (populationSize - deadBirds).ToString() + '\n' + "Gen: " + gen.ToString();
     }
 
     //1
@@ -72,21 +74,21 @@ public class PopulationController : MonoBehaviour
     private void CheckAllBirdsDead()
     {
 
-        //if (bestPopulation.Count > 3)
-        //{
-        //    _birdsAlifeLabel.text = "Birds Alife: " + birdsAlife.ToString() + '\n' + "Gen: " + gen.ToString()
-        //        + '\n' + "BestBird0: " + bestPopulation[0].GetComponent<Score>().fitnessScore
-        //        + '\n' + "BestBird1: " + bestPopulation[1].GetComponent<Score>().fitnessScore
-        //        + '\n' + "BestBird2: " + bestPopulation[2].GetComponent<Score>().fitnessScore
-        //        + '\n' + "BestBird3: " + bestPopulation[3].GetComponent<Score>().fitnessScore;
-        //}
+        if (bestPopulation.Count > 3)
+        {
+            _birdsAlifeLabel.text = "Birds Alife: " + (populationSize - deadBirds).ToString() + '\n' + "Gen: " + gen.ToString()
+                + '\n' + "BestBird0: " + bestPopulation[0].GetComponent<Score>().fitnessScore
+                + '\n' + "BestBird1: " + bestPopulation[1].GetComponent<Score>().fitnessScore
+                + '\n' + "BestBird2: " + bestPopulation[2].GetComponent<Score>().fitnessScore
+                + '\n' + "BestBird3: " + bestPopulation[3].GetComponent<Score>().fitnessScore;
+        }
         //else
         //{
         //    _birdsAlifeLabel.text = "Birds Alife: " + birdsAlife.ToString() + '\n' + "Gen: " + gen.ToString();
         //}
 
 
-        if (deadBirds == 50)
+        if (deadBirds == populationSize)
         {
             Debug.Log("All Dead");
             GetBestBirds();
@@ -110,11 +112,12 @@ public class PopulationController : MonoBehaviour
         }
         //Debug.Log(bestPopulation.Count);
 
-        _birdsAlifeLabel.text = 
-            "BestBird0: " + bestPopulation[0].GetComponent<Score>().fitnessScore
-            + '\n' + "BestBird1: " + bestPopulation[1].GetComponent<Score>().fitnessScore
-            + '\n' + "BestBird2: " + bestPopulation[2].GetComponent<Score>().fitnessScore
-            + '\n' + "BestBird3: " + bestPopulation[3].GetComponent<Score>().fitnessScore;
+        _birdsAlifeLabel.text =
+                        "Birds Alife: " + (populationSize - deadBirds).ToString() + '\n' + "Gen: " + gen.ToString()
+                + '\n' + "BestBird0: " + bestPopulation[0].GetComponent<Score>().fitnessScore
+                + '\n' + "BestBird1: " + bestPopulation[1].GetComponent<Score>().fitnessScore
+                + '\n' + "BestBird2: " + bestPopulation[2].GetComponent<Score>().fitnessScore
+                + '\n' + "BestBird3: " + bestPopulation[3].GetComponent<Score>().fitnessScore;
 
         if (!isPlaying)
             InitNewPopulation();
@@ -130,41 +133,55 @@ public class PopulationController : MonoBehaviour
         PipeSpawner.Instance.ResetLevel();
 
         int a = 0;
-        a = 50 * gen;
+        a = populationSize * gen;
 
+
+        int addedBirds = 0;
         //List<GameObject> newGeneration = new List<GameObject>();
         Debug.Log(bestPopulation.Count);
         if (bestPopulation.Count > 1)
         {
 
             //10 bird crossover with the 2 best birds
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 2; i++)
             {
                 NeuralNetwork network = CrossOver(bestPopulation[0].GetComponent<NeuralNetwork>(), bestPopulation[1].GetComponent<NeuralNetwork>());
                 allBirdPopulation[i + a].GetComponent<NeuralNetwork>().NewInitializeWeights(network.weightsInputToHidden, network.weightsHiddenToOutput);
+                allBirdPopulation[i + a].GetComponent<Renderer>().material.color = Color.red;
+
+                addedBirds++;
             }
            
             //25 bird crossover with the 2 best birds
-            for (int i = 25; i < 25; i++)
+            for (int i = 2; i < 7; i++)
             {
                 int randomBestA = Random.Range(0, 3);
                 int randomBestB = Random.Range(0, 3);
                 NeuralNetwork network = CrossOver(bestPopulation[randomBestA].GetComponent<NeuralNetwork>(), bestPopulation[randomBestB].GetComponent<NeuralNetwork>());
                 allBirdPopulation[i + a].GetComponent<NeuralNetwork>().NewInitializeWeights(network.weightsInputToHidden, network.weightsHiddenToOutput);
+                allBirdPopulation[i + a].GetComponent<Renderer>().material.color = Color.blue;
+
+                addedBirds++;
+
             }
 
             //8 bird copy of the best bird
-            for (int i = 35; i < 8; i++)
+            for (int i = 7; i < 9; i++)
             {
                 allBirdPopulation[i + a].GetComponent<NeuralNetwork>().NewInitializeWeights(bestPopulation[0].GetComponent<NeuralNetwork>().weightsInputToHidden, bestPopulation[0].GetComponent<NeuralNetwork>().weightsHiddenToOutput);
+                allBirdPopulation[i + a].GetComponent<Renderer>().material.color = Color.black;
+
+                addedBirds++;
             }
 
-            //7 bird copy of the best bird
-            for (int i = 43; i < 7; i++)
+            //7 bird copy of the second best bird
+            for (int i = 9; i < 10; i++)
             {
                 allBirdPopulation[i + a].GetComponent<NeuralNetwork>().NewInitializeWeights(bestPopulation[1].GetComponent<NeuralNetwork>().weightsInputToHidden, bestPopulation[1].GetComponent<NeuralNetwork>().weightsHiddenToOutput);
+                allBirdPopulation[i + a].GetComponent<Renderer>().material.color = Color.white;
+
+                addedBirds++;
             }
-            
         }
     }
 

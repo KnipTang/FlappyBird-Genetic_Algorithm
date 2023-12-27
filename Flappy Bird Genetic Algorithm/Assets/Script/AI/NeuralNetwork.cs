@@ -117,7 +117,7 @@ public class NeuralNetwork : MonoBehaviour
 
         // Apply sigmoid activation function to output
         //Keep output value between 0-1 for visual purposes
-       // output = 1 / (1 + Mathf.Exp(-output));
+         output = 1 / (1 + Mathf.Exp(-output));
 
         return output;
     }

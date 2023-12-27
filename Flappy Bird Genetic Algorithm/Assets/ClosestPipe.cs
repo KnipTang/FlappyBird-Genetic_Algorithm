@@ -31,21 +31,21 @@ public class ClosestPipe : MonoBehaviour
         if (notHitPipes != null)
         {
 
-        foreach (GameObject pipe in pipes)
-        {
-            SpriteRenderer resetColor = pipe.GetComponent<SpriteRenderer>();
-            resetColor.color = Color.gray;
-
-            PipeIncreaseScore pipeScore = pipe.GetComponent<PipeIncreaseScore>();
-            if (!pipeScore.GetHit())
-                notHitPipes.Add(pipe);
-        }
-            if (notHitPipes.Count > 0)
+            foreach (GameObject pipe in pipes)
             {
-                SpriteRenderer pipeRenderer = notHitPipes[0].GetComponent<SpriteRenderer>();
-                pipeRenderer.color = Color.red;
-                closestPipe = notHitPipes[0];
+                SpriteRenderer resetColor = pipe.GetComponent<SpriteRenderer>();
+                resetColor.color = Color.gray;
+
+                PipeIncreaseScore pipeScore = pipe.GetComponent<PipeIncreaseScore>();
+                if (!pipeScore.GetHit())
+                    notHitPipes.Add(pipe);
             }
+                if (notHitPipes.Count > 0)
+                {
+                    SpriteRenderer pipeRenderer = notHitPipes[0].GetComponent<SpriteRenderer>();
+                    pipeRenderer.color = Color.red;
+                    closestPipe = notHitPipes[0];
+                }
         }
     }
 }
