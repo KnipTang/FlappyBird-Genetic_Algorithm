@@ -13,16 +13,15 @@ public class PipeSpawner : MonoBehaviour
     [SerializeField] private float _pipeOffset = 2f;
 
     private Vector3 _lastPipePosition;
+
+    [SerializeField]
+    public float pipeMoveSpeed = 3f;
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
         }
-    }
-    private void Start()
-    {
-        SpawnPipe();
     }
 
     private void Update()
@@ -42,7 +41,7 @@ public class PipeSpawner : MonoBehaviour
         float randomHeight = Random.Range(_minY, _maxY);
         Vector3 spawnPos = _lastPipePosition + new Vector3(_pipeOffset, randomHeight);
         spawnPos.y = randomHeight;
-        GameObject pipe = Instantiate(_pipe, spawnPos, Quaternion.identity);
+        Instantiate(_pipe, spawnPos, Quaternion.identity);
     }
     public void ResetLevel()
     {

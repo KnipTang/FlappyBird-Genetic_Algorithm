@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Score: {fileID: 336337977}
+  _birdsAlifeLabel: {fileID: 1552648906}
   score: 0
 --- !u!4 &171675999
 Transform:
@@ -337,9 +338,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '8
-
-'
+  m_text: 'Top score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -967,6 +966,7 @@ MonoBehaviour:
   _maxY: 7
   _pipe: {fileID: 5646818693752849403, guid: 52b7aa0c025319448ab6353a030ef7b0, type: 3}
   _pipeOffset: 5
+  pipeMoveSpeed: 2
 --- !u!4 &2066701580
 Transform:
   m_ObjectHideFlags: 0
@@ -1115,11 +1115,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bestPopulation: []
-  _birdsAlifeLabel: {fileID: 1552648906}
   birdPrefab: {fileID: 5858456132095571801, guid: 91cac8296dcaabc41bf6e5f53b5abec2, type: 3}
   populationSize: 10
   gen: 0
   spawnPoint: {fileID: 1937092294}
+  deadBirds: 0
 --- !u!4 &2081985489
 Transform:
   m_ObjectHideFlags: 0

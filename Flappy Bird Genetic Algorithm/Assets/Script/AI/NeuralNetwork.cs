@@ -32,9 +32,9 @@ public class NeuralNetwork : MonoBehaviour
     }
     private void Awake()
     {
-        //Idea Get gen. if gen is 0 get random weights. But if gen is 1 or more. Get weights 
-        // Set a unique random seed
+        //Set a unique random seed
         Random.InitState(System.DateTime.Now.Millisecond);
+
         //Get current gen
         PopulationController populationController = FindAnyObjectByType<PopulationController>();
         gen = populationController.gen;
@@ -49,7 +49,6 @@ public class NeuralNetwork : MonoBehaviour
     }
     public void NewInitializeWeights(float[] oldWeightsInputToHidden, float[] oldWeightsHiddenToOutput)
     {
-        
         //Base every weight on the weights of the last gen best
         for (int i = 0; i < weightsInputToHidden.Length; i++)
         {
@@ -77,8 +76,7 @@ public class NeuralNetwork : MonoBehaviour
 
     public float FeedForward(float[] inputs)
     {
-        // Check input size
-        //Debug.Log(inputs.Length + " " + inputLayerSize);
+        //Check input size
         if (inputs.Length != inputLayerSize)
         {
             Debug.LogError("Input size does not match the neural network input size.");

@@ -8,10 +8,10 @@ using UnityEngine.UIElements;
 
 public class GeneticAlgorithm : MonoBehaviour
 {
-    public NeuralNetwork neuralNetwork;
-    public float distanceX;
-    public float distanceY;
-    public float weight = 0;
+    private NeuralNetwork neuralNetwork;
+    private float distanceX;
+    private float distanceY;
+    private float weight = 0;
 
     private void Awake()
     {
@@ -28,10 +28,7 @@ public class GeneticAlgorithm : MonoBehaviour
         weight = neuralNetwork.FeedForward(inputs);
         //If weight is higher than 0.5f -> Flap
         if (weight >= 0.5f)
-        {
-
             Flap();  
-        }
     }
 
     private void SetInputLayers()
@@ -49,7 +46,7 @@ public class GeneticAlgorithm : MonoBehaviour
         }
     }
    
-    void Flap()
+    private void Flap()
     {
         FlyBehavior birdJump = gameObject.GetComponent<FlyBehavior>();
         birdJump.Jump();

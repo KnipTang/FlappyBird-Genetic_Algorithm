@@ -19,12 +19,17 @@ public class PipeIncreaseScore : MonoBehaviour
                     HUD.GetComponent<HUD>().score = birdScore.GetScore();
             }
         }
-
-
-        Invoke("SetHit", 4f);
-
-        Destroy(gameObject, 10);
-
+    }
+    private void FixedUpdate()
+    {
+        if (gameObject.transform.position.x < -1f && wasHit != true)
+        {
+            SetHit();
+        }
+        if (gameObject.transform.position.x < -5f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void SetHit()
@@ -36,4 +41,5 @@ public class PipeIncreaseScore : MonoBehaviour
     {
         return wasHit;
     }
+
 }
