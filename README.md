@@ -2,7 +2,7 @@
 # Flappy Bird - Genetic Algorithm
 
 For my research project, I tried to create a genetic algorithm that could perfectly play the mobile game Flappy Bird. I used Unity to recreate Flappy Bird and the implementation of the algorithm.
-
+![](https://github.com/Howest-DAE-GD/gpp-researchtopic-KnipTang/GIF.gif)
 ## Flappy Bird
 
 Flappy Bird is a fairly simple game where the player controls a bird by flapping resulting in the bird moving up or not flapping resulting in the bird moving down. The bird needs to pass between holes of the incoming pipes. Passing between a pipe will result in the player's score being increased by one. Colliding between the bird and the ground, roof or one of the pipes will result in ending the game.
