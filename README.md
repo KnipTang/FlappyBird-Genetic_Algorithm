@@ -16,7 +16,7 @@ Every bird has a neural network. This neural network consists of an input layer,
 
 The input layer has two nodes. The first node takes the length between the x value of the bird and the x value of the center of the incoming pipes. The second node does the same but for the y value.
 
-These values get passed to the 6 hidden nodes. These nodes take the values of the input nodes and calculate/multiply them with the bird's unique "weightsInputToHidden" and "weightsHiddenToInput" values. These unique values decide how well the bird will perform. The closer these values are to the final solution the better the bird performs. This is the weight matrices or DNA of the bird.
+These values get passed to the 6 hidden nodes. These nodes take the values of the input nodes and calculate/multiply them with the bird's unique "weightsInputToHidden" and "weightsHiddenToInput" values. These unique values decide how well the bird will perform. The closer these values are to the final solution the better the bird performs. These values are the weight matrices or DNA of the bird.
 
 After the calculations, the hidden nodes pass a final value to the 1 output node. The value of the output node is the weight of the bird at that moment. This weight gets recalculated every frame. If the weight is higher than a certain threshold the bird flaps. Otherwise, the bird does nothing and falls down until the threshold is met.
 
