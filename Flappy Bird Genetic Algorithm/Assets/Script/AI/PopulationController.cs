@@ -113,7 +113,7 @@ public class PopulationController : MonoBehaviour
         if (bestPopulation.Count > 1)
         {
 
-            //10 bird crossover with the 2 best birds
+            //2 bird crossover with the 2 best birds
             for (int i = 0; i < 2; i++)
             {
                 NeuralNetwork network = CrossOver(bestPopulation[0].GetComponent<NeuralNetwork>(), bestPopulation[1].GetComponent<NeuralNetwork>());
@@ -121,7 +121,7 @@ public class PopulationController : MonoBehaviour
                 newBirdPopulation[i].GetComponent<Renderer>().material.color = Color.red;
             }
 
-            //25 bird crossover with the 2 best birds
+            //5 bird crossover with the 2 best birds
             for (int i = 2; i < 7; i++)
             {
                 int randomBestA = Random.Range(0, 3);
@@ -131,14 +131,14 @@ public class PopulationController : MonoBehaviour
                 newBirdPopulation[i].GetComponent<Renderer>().material.color = Color.blue;
             }
 
-            //8 bird copy of the best bird
+            //2 bird copy of the best bird
             for (int i = 7; i < 9; i++)
             {
                 newBirdPopulation[i].GetComponent<NeuralNetwork>().NewInitializeWeights(bestPopulation[0].GetComponent<NeuralNetwork>().weightsInputToHidden, bestPopulation[0].GetComponent<NeuralNetwork>().weightsHiddenToOutput);
                 newBirdPopulation[i].GetComponent<Renderer>().material.color = Color.black;
             }
 
-            //7 bird copy of the second best bird
+            //1 bird copy of the second best bird
             for (int i = 9; i < 10; i++)
             {
                 newBirdPopulation[i].GetComponent<NeuralNetwork>().NewInitializeWeights(bestPopulation[1].GetComponent<NeuralNetwork>().weightsInputToHidden, bestPopulation[1].GetComponent<NeuralNetwork>().weightsHiddenToOutput);
@@ -166,23 +166,23 @@ public class PopulationController : MonoBehaviour
     {
         NeuralNetwork childNN = new NeuralNetwork();
 
-        // Perform crossover for input to hidden layer weights
+        //Perform crossover for input to hidden layer weights
         for (int i = 0; i < childNN.weightsInputToHidden.Length; i++)
         {
-            // Crossover point (you can use a random point or a fixed point)
+            //Crossover point (you can use a random point or a fixed point)
             float crossoverPoint = Random.Range(0f, 1f);
 
-            // Use weights from parentA if crossoverPoint is less than 0.5, else use weights from parentB
+            //Use weights from parentA if crossoverPoint is less than 0.5, else use weights from parentB
             childNN.weightsInputToHidden[i] = crossoverPoint < 0.5f ? parentA.weightsInputToHidden[i] : parentB.weightsInputToHidden[i];
         }
 
-        // Perform crossover for hidden to output layer weights
+        //Perform crossover for hidden to output layer weights
         for (int i = 0; i < childNN.weightsHiddenToOutput.Length; i++)
         {
-            // Crossover point (you can use a random point or a fixed point)
+            //Crossover point (you can use a random point or a fixed point)
             float crossoverPoint = Random.Range(0f, 1f);
 
-            // Use weights from parentA if crossoverPoint is less than 0.5, else use weights from parentB
+            //Use weights from parentA if crossoverPoint is less than 0.5, else use weights from parentB
             childNN.weightsHiddenToOutput[i] = crossoverPoint < 0.5f ? parentA.weightsHiddenToOutput[i] : parentB.weightsHiddenToOutput[i];
         }
 
