@@ -14,7 +14,7 @@ A genetic algorithm tries to mimic the evolution theory through the process of n
 ### Neural Network
 Every bird has a neural network. This neural network consists of an input layer, a hidden layer and an output layer.
 
-The input layer has 2 nodes. The first node takes the length between the x value of the bird and the x value of the center of the incoming pipes. The second node does the same but for the y value.
+The input layer has two nodes. The first node takes the length between the x value of the bird and the x value of the center of the incoming pipes. The second node does the same but for the y value.
 
 These values get passed to the 6 hidden nodes. These nodes take the values of the input nodes and calculate/multiply them with the bird's unique "weightsInputToHidden" and "weightsHiddenToInput" values. These unique values decide how well the bird will perform. The closer these values are to the final solution the better the bird performs. This is the weight matrices or DNA of the bird.
 
@@ -29,12 +29,11 @@ After the first generation dies out and no solution was found in that generation
 The offspring for the new generation will be created by selecting the best birds and using crossover and mutation techniques on the DNA of the birds to create variants of these birds. This process will be repeated until a bird with DNA that can solve the problem has been created.
 
 #### Crossover
-Crossover is the process of combining the DNA from two-parent birds to create offspring. In the context of the neural network, crossover involves selecting random crossover points along the DNA of the parents and exchanging genetic information between those points.
+Crossover is the process of combining the DNA from two-parent birds to create offspring. by selecting random crossover points along the DNA of the parents and exchanging genetic information between those points.
 
 ![App Screenshot](https://github.com/Howest-DAE-GD/gpp-researchtopic-KnipTang/blob/main/Crossover.PNG)
 #### Mutation
-Mutation introduces small random changes in the DNA of an individual to maintain genetic diversity. In the context of this neural network, mutation involves randomly adjusting the DNA of the newly created offspring.
-A mutation rate decides how big the chance is that an offspring will mutate.
+Mutation introduces small random changes in the DNA of an individual to maintain genetic diversity. In the context of this neural network, mutation involves randomly adjusting the DNA of the newly created offspring. A mutation rate determines the likelihood of offspring undergoing mutation.
 
 ![App Screenshot](https://github.com/Howest-DAE-GD/gpp-researchtopic-KnipTang/blob/main/Mutation.PNG)
 
@@ -42,7 +41,9 @@ A mutation rate decides how big the chance is that an offspring will mutate.
 After multiple generations of the genetic algorithm, the algorithm was able to produce birds that demonstrated improved performance every new generation. At an average of only 4 generations, the system can create a bird that plays the game flawlessly. The process of natural selection, crossover, and mutation contributed to the generation of birds with increasingly optimized neural network weights.
 
 ## Future
-The algorithm could still be improved by adding more different input nodes to the neural network. These nodes could keep the distance between the bird and the upper/lower pipe into account instead of only working with the center of the pipe. This would result in getting the desired solution faster.
+To further improve the algorithm, consider expanding the neural network's input nodes to include factors such as the distance between the bird and the upper/lower pipes instead of just keeping the distance between the center in mind. This additional information could expedite the convergence towards the desired solution.
+
+![App Screenshot](https://github.com/Howest-DAE-GD/gpp-researchtopic-KnipTang/blob/main/Future.PNG)
 
 ## References
 https://www.geeksforgeeks.org/genetic-algorithms/
