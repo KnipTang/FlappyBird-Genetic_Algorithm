@@ -1,14 +1,13 @@
-
 # Flappy Bird - Genetic Algorithm
-
+## Introduction
 For my research project, I tried to create a genetic algorithm that could perfectly play the mobile game Flappy Bird. I used Unity to recreate Flappy Bird and the implementation of the algorithm.
 
 ![](https://github.com/Howest-DAE-GD/gpp-researchtopic-KnipTang/blob/main/GIF.gif)
 
-## Flappy Bird
+### Flappy Bird
 
-Flappy Bird is a fairly simple game where the player controls a bird by flapping resulting in the bird moving up or not flapping resulting in the bird moving down. The bird needs to pass between holes of the incoming pipes. Passing between a pipe will result in the player's score being increased by one. Colliding between the bird and the ground, roof or one of the pipes will result in ending the game.
-## Genetic Algorithm
+Flappy Bird is a fairly simple game where the player controls a bird by flapping. Flapping results in the bird moving up and not flapping leads to the bird moving down. The bird needs to pass between holes of the incoming pipes. By passing between a pipe, the player's score will increase by one. Colliding between the bird and the ground, roof or one of the pipes will lead to the game ending.
+### Genetic Algorithm
 A genetic algorithm tries to mimic the evolution theory through the process of natural selection, crossover and mutation. Every new generation gets better by learning from the best individuals of the past generations. This process keeps getting repeated until a solution is found. 
 ## Implementation
 
@@ -25,14 +24,29 @@ After the calculations, the hidden nodes pass a final value to the 1 output node
 ### Generations
 Every generation has a set population size. This size will decide how many birds will spawn at the beginning of each generation. In the first generation, all the bird's unique DNA values will be randomized between certain minimum and maximum values.
 
-After the first generation dies out and no solution was found in that generation, a new generation will be created from the DNA of the birds with the highest fitness score of the last generation. A fitness score indicates how well a bird has performed. The fitness score in this case the time a bird survived.
+After the first generation dies out and no solution was found in that generation, a new generation will be created from the DNA of the birds with the highest fitness score of the last generation. A fitness score indicates how well a bird has performed. The fitness score in this case is the time a bird survived.
 
-The offspring for the new generation will created by selecting the best birds and using crossover and mutation techniques on the DNA of the birds to create variants of these birds. This process will be repeated until a bird with DNA that can solve the problem has been created.
+The offspring for the new generation will be created by selecting the best birds and using crossover and mutation techniques on the DNA of the birds to create variants of these birds. This process will be repeated until a bird with DNA that can solve the problem has been created.
 
 #### Crossover
 Crossover is the process of combining the DNA from two-parent birds to create offspring. In the context of the neural network, crossover involves selecting random crossover points along the DNA of the parents and exchanging genetic information between those points.
+
 ![App Screenshot](https://github.com/Howest-DAE-GD/gpp-researchtopic-KnipTang/blob/main/Crossover.PNG)
 #### Mutation
-Mutation introduces small random changes in the DNA of an individual to maintain genetic diversity. In the context of the neural network, mutation involves randomly adjusting the weights.
+Mutation introduces small random changes in the DNA of an individual to maintain genetic diversity. In the context of this neural network, mutation involves randomly adjusting the DNA of the newly created offspring.
 A mutation rate decides how big the chance is that an offspring will mutate.
+
 ![App Screenshot](https://github.com/Howest-DAE-GD/gpp-researchtopic-KnipTang/blob/main/Mutation.PNG)
+
+## Result
+After multiple generations of the genetic algorithm, the algorithm was able to produce birds that demonstrated improved performance every new generation. At an average of only 4 generations, the system can create a bird that plays the game flawlessly. The process of natural selection, crossover, and mutation contributed to the generation of birds with increasingly optimized neural network weights.
+
+## Future
+The algorithm could still be improved by adding more different input nodes to the neural network. These nodes could keep the distance between the bird and the upper/lower pipe into account instead of only working with the center of the pipe. This would result in getting the desired solution faster.
+
+## References
+https://www.geeksforgeeks.org/genetic-algorithms/
+https://theailearner.com/2018/11/09/snake-game-with-genetic-algorithm/
+https://techs0uls.wordpress.com/2020/02/03/teaching-ai-to-play-snake-with-genetic-algorithm/
+https://medium.com/@christian_deveaux/a-genetic-algorithm-solving-flappy-bird-using-data-science-87bcd981cefd
+https://www.askforgametask.com/tutorial/machine-learning/machine-learning-algorithm-flappy-bird/
