@@ -38,6 +38,8 @@ Mutation introduces small random changes in the DNA of an individual to maintain
 ![App Screenshot](https://github.com/Howest-DAE-GD/gpp-researchtopic-KnipTang/blob/main/Mutation.PNG)
 
 ## Result
+If the fitness score of all the birds of the first generation is lower than a certain threshold meaning that all the birds directly flew against the ceiling or ground a new generation will spawn with random weight matrices instead of creating offspring from "the best" of the failed birds. A desired result would also be found after a certain amount of time without doing this, but doing so would take more time.
+
 After multiple generations of the genetic algorithm, the algorithm was able to produce birds that demonstrated improved performance every new generation. At an average of only 4 generations, the system can create a bird that plays the game flawlessly. The process of natural selection, crossover, and mutation contributed to the generation of birds with increasingly optimized neural network weights.
 
 ## Future
