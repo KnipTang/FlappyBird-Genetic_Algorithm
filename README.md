@@ -2,7 +2,7 @@
 ## Introduction
 For my research project, I tried to create a genetic algorithm that could perfectly play the mobile game Flappy Bird. I used Unity to recreate Flappy Bird and the implementation of the algorithm.
 
-![](https://github.com/Howest-DAE-GD/gpp-researchtopic-KnipTang/blob/main/GIF.gif)
+![](https://github.com/KnipTang/FlappyBird-Genetic_Algorithm/blob/main/GIF.gif)
 
 ### Flappy Bird
 
@@ -20,7 +20,7 @@ These values get passed to the 6 hidden nodes. These nodes take the values of th
 
 After the calculations, the hidden nodes pass a final value to the 1 output node. The value of the output node is the weight of the bird at that moment. This weight gets recalculated every frame. If the weight is higher than a certain threshold the bird flaps. Otherwise, the bird does nothing and falls down until the threshold is met.
 
-![App Screenshot](https://github.com/Howest-DAE-GD/gpp-researchtopic-KnipTang/blob/main/NeuralNetwork.PNG)
+![App Screenshot](https://github.com/KnipTang/FlappyBird-Genetic_Algorithm/blob/main/NeuralNetwork.PNG)
 ### Generations
 Every generation has a set population size. This size will decide how many birds will spawn at the beginning of each generation. In the first generation, all the bird's unique DNA values will be randomized between certain minimum and maximum values.
 
@@ -31,11 +31,11 @@ The offspring for the new generation will be created by selecting the best birds
 #### Crossover
 Crossover is the process of combining the DNA from two-parent birds to create offspring. by selecting random crossover points along the DNA of the parents and exchanging genetic information between those points.
 
-![App Screenshot](https://github.com/Howest-DAE-GD/gpp-researchtopic-KnipTang/blob/main/Crossover.PNG)
+![App Screenshot](https://github.com/KnipTang/FlappyBird-Genetic_Algorithm/blob/main/Crossover.PNG)
 #### Mutation
 Mutation introduces small random changes in the DNA of an individual to maintain genetic diversity. In the context of this neural network, mutation involves randomly adjusting the DNA of the newly created offspring. A mutation rate determines the likelihood of offspring undergoing mutation.
 
-![App Screenshot](https://github.com/Howest-DAE-GD/gpp-researchtopic-KnipTang/blob/main/Mutation.PNG)
+![App Screenshot](https://github.com/KnipTang/FlappyBird-Genetic_Algorithm/blob/main/Mutation.PNG)
 
 ## Result
 If the fitness score of all the birds of the first generation is lower than a certain threshold meaning that all the birds directly flew against the ceiling or ground a new generation will spawn with random weight matrices instead of creating offspring from "the best" of the failed birds. A desired result would also be found after a certain amount of time without doing this, but doing so would take more time.
@@ -45,7 +45,7 @@ After multiple generations of the genetic algorithm, the algorithm was able to p
 ## Future
 To further improve the algorithm, consider expanding the neural network's input nodes to include factors such as the distance between the bird and the upper/lower pipes instead of just keeping the distance between the center in mind. This additional information could expedite the convergence towards the desired solution.
 
-![App Screenshot](https://github.com/Howest-DAE-GD/gpp-researchtopic-KnipTang/blob/main/Future.PNG)
+![App Screenshot](https://github.com/KnipTang/FlappyBird-Genetic_Algorithm/blob/main/Future.PNG)
 
 ## References
 https://www.geeksforgeeks.org/genetic-algorithms/
